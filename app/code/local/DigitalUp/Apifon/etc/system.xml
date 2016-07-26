@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<config>
+	  <tabs>
+		<digitalup translate="label" module="apifon">
+            <label>DigitalUp</label>
+            <sort_order>10</sort_order>
+        </digitalup>
+	  </tabs>
+	  <sections>
+		<apifon  translate="label" module="apifon">                    
+		<label>Apifon</label>
+		<tab>digitalup</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>0</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>            
+					<groups>
+				      <general translate="label"> 
+					  <label>General</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>0</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+                          <enabled translate="label">
+                            <label>Is Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Enable Extension - Send SMS on success order</comment>
+                          </enabled>
+						  <success_text translate="label">
+                            <label>Text on success order</label>
+							<frontend_type>textarea</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+                                <enabled>1</enabled>
+                            </depends>
+							<comment>Acceptable variables: {{firstname}} {{lastname}} {{order}}</comment>
+                          </success_text>
+						  <enable_tracking translate="label">
+                            <label>Send tracking number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Send SMS with tracking number</comment>
+                          </enable_tracking>
+						  <tracking_text translate="label">
+                            <label>Text with tracking number</label>
+							<frontend_type>textarea</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+                                <enable_tracking>1</enable_tracking>
+                            </depends>
+							<comment>Acceptable variables: {{trackNo}} {{carrier}}</comment>
+                          </tracking_text>
+                          <key translate="label">
+                            <label>Api Key</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Apifon Key Provided</comment>
+                          </key>
+                          <sender_name translate="label">
+                            <label>Sender Name</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Name of the Sender</comment>
+                          </sender_name>                          
+					   </fields>
+					   </general>
+					</groups>
+		</apifon>
+	  </sections>
+</config>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <DigitalUp_Apifon>
+      <version>0.1.0</version>
+    </DigitalUp_Apifon>
+  </modules>
+  <global>
+    <helpers>
+      <apifon>
+        <class>DigitalUp_Apifon_Helper</class>
+      </apifon>
+    </helpers>
+	<models>
+	  <apifon>
+		<class>DigitalUp_Apifon_Model</class>
+		<resourceModel>apifon_mysql4</resourceModel>
+	  </apifon>
+	</models>
+    <events>
+	  <checkout_onepage_controller_success_action> <!-- identifier of the event we want to catch -->
+        <observers>
+          <checkout_onepage_controller_success_action_handler> <!-- identifier of the event handler -->
+            <type>singleton</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>apifon/observer</class> <!-- observers class alias -->
+            <method>sendSuccessOrder</method>  <!-- observer's method to be called -->
+          </checkout_onepage_controller_success_action_handler>
+        </observers>
+      </checkout_onepage_controller_success_action>
+	  <sales_order_shipment_save_after> <!-- identifier of the event we want to catch -->
+        <observers>
+          <checkout_onepage_controller_success_action_handler> <!-- identifier of the event handler -->
+            <type>singleton</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>apifon/observer</class> <!-- observers class alias -->
+            <method>sendTrackingNumber</method>  <!-- observer's method to be called -->
+          </checkout_onepage_controller_success_action_handler>
+        </observers>
+      </sales_order_shipment_save_after>
+    </events>
+  </global>
+</config> 
