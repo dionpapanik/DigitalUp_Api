@@ -40,7 +40,7 @@ class DigitalUp_Apifon_Model_Observer
 	public function sendTrackingNumber(Varien_Event_Observer $observer)
 	{
 		$helper = Mage::helper('apifon');
-		if ($helper->getEnableTracking() === '1'){
+		if ($helper->getEnableTracking()){
 
 			$shipment = $observer->getEvent()->getShipment();
 			$phone = $shipment->getBillingAddress()->getData('telephone');
