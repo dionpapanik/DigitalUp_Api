@@ -54,7 +54,7 @@ class DigitalUp_Apifon_Model_Observer
 				/*
 				 * get all shippments data, after save.
 				 * asign to $carrier & $number only the last shipment
-				 * if order has more than one carriers & No will asign the last
+				 * if order has more than one carriers & No will asign the last data - end(array)
 				 */
 				 
 				$track = end($shipment->getAllTracks());
@@ -90,16 +90,11 @@ class DigitalUp_Apifon_Model_Observer
         $curl_httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
 
-		/*Zend_Debug::dump($apiKey);
-		Zend_Debug::dump($senderName);
-		Zend_Debug::dump($phone);
-		Zend_Debug::dump($text);
-
-		Mage::log('apiKey ' . $apiKey, 6, 'dionisis.log', true);
-		Mage::log('senderName ' . $senderName, 6, 'dionisis.log', true);
-		Mage::log('phone ' . $phone, 6, 'dionisis.log', true);
-		Mage::log('text ' . $text, 6, 'dionisis.log', true);*/
-		
-		// ola cool!
+        /*
+        * Mage::log('apiKey ' . $apiKey, null, 'dionisis.log', true);
+		* Mage::log('senderName ' . $senderName, null, 'dionisis.log', true);
+		* Mage::log('phone ' . $phone, null, 'dionisis.log', true);
+		* Mage::log('text ' . $text, null, 'dionisis.log', true);
+		*/
 	}
 }
