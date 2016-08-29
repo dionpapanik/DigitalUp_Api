@@ -56,10 +56,10 @@ class DigitalUp_Apifon_Model_Observer
 				 * asign to $carrier & $number only the last shipment
 				 * if order has more than one carriers & No will asign the last
 				 */
-				foreach ($shipment->getAllTracks() as $track) {
-					$carrier = $track->getData('title');
-					$number = $track->getData('track_number');
-				}
+				 
+				$track = end($shipment->getAllTracks());
+				$carrier = $track->getData('title');
+				$number = $track->getData('track_number');
 
 				/* prepare the text */
 				$text = $helper->getTrackingText();
